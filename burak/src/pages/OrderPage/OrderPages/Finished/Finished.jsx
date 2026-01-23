@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Finished.scss"
+import just_img from './OrderPages_imgs/icons8-user-48.png'
 export default function Finished() {
   return (
     <div className="Finished">
@@ -78,7 +79,7 @@ export default function Finished() {
 
 
         <div className="profile">
-          <img src="https://www.istockphoto.com/illustrations/generic-person-icon" alt="user" />
+          <img src={just_img} alt="user" />
           <h3>Justin</h3>
           <span className="role">USER</span>
           <p className="location">📍 South Korea, Busan</p>

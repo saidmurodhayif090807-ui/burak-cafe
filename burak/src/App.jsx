@@ -20,6 +20,7 @@ function App() {
           <Route path='/MyPage' element={<MyPage />} />
           <Route path='/OrderPage' element={<OrderPage />}>
             <Route index element={<Paused/>} />
+            <Route path="paused" element={<Paused/>} />
             <Route path='process' element={<Process/>} />
             <Route path='finished' element={<Finished/>} />
           </Route>

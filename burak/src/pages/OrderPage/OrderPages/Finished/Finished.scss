@@ -1,7 +1,7 @@
 .Finished {
     font-family: Arial, Helvetica, sans-serif;
     .container {
-        margin-top: 200px;
+        margin-top: 100px;
         display: flex;
         align-items: self-start;
         justify-content: center;
@@ -12,14 +12,18 @@
             align-items: center;
             row-gap: 40px;
             .orderCard{
+                background-image: url('./OrderPages_imgs/nym.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed    ;
                 border-radius: 20px;
                 width: 670px;
                 border: 1px solid rgba(128, 128, 128, 0.104);
                 padding: 8px 20px;
                 box-shadow: -2px 2px 5px grey;
+                color: white;
             }
         }
-        
         .items{
             .item{
                 .food_click{
@@ -49,7 +53,7 @@
             display: block;
             margin: 8px 0;
             font-size: 12px;
-            color: #888;
+            color: rgba(172, 255, 47, 0.634);
         }
 
 
