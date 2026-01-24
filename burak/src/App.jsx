@@ -9,6 +9,7 @@ import Paused from './pages/OrderPage/OrderPages/Paused/Paused';
 import Process from './pages/OrderPage/OrderPages/Process/Process';
 import Finished from './pages/OrderPage/OrderPages/Finished/Finished';
 import ProductPage from './pages/ProductPage/ProductPage';
+import HelpPage from "./pages/HelpPage/HelpPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='process' element={<Process/>} />
             <Route path='finished' element={<Finished/>} />
           </Route>
+          <Route path="/HelpPage" element={<HelpPage/>}/>
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

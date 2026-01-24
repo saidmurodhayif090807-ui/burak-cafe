@@ -18,7 +18,7 @@ const Navbar = () => {
           <li><NavLink to={'/ProductPage'}>ProductPage</NavLink></li>
           <li><NavLink to={'/MyPage'}>MyPage</NavLink></li>
           <li><NavLink to={'/OrderPage'}>OrderPage</NavLink></li>
-          <li><a href="#help">Help</a></li>
+          <li><NavLink to={'/HelpPage'}>Help</NavLink></li>
           <li><i className="cart-icon">🛒</i></li>
           <li><button className="btn-login">LOGIN</button></li>
         </ul>
