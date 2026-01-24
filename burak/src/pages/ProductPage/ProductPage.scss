@@ -1,0 +1,315 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+  background: #f7f8fc;
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .search-box {
+    display: flex;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    input {
+      border: none;
+      padding: 10px 15px;
+      outline: none;
+      width: 200px;
+    }
+
+    button {
+      border: none;
+      background: #222;
+      color: #fff;
+      padding: 0 18px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ================= FILTERS ================= */
+.filters {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: #e6e6e6;
+    font-size: 13px;
+
+    &.active {
+      background: #222;
+      color: #fff;
+    }
+  }
+}
+
+/* ================= MAIN ================= */
+.main {
+  display: flex;
+  gap: 25px;
+}
+
+/* ================= CATEGORIES ================= */
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  button {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #e6e6e6;
+    font-size: 14px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+    &.active {
+      background: #222;
+      color: #fff;
+    }
+  }
+}
+
+/* ================= FOOD GRID ================= */
+.food-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* ================= PRODUCT CARD ================= */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.35)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ff9800;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    z-index: 2;
+  }
+
+  .cart-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: #8e24aa;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  &:hover .cart-btn {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  h3 {
+    margin: 12px 0 6px;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .price {
+    color: #ff9800;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0;
+
+  button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: #e6e6e6;
+
+    &.active {
+      background: #c62828;
+      color: #fff;
+    }
+  }
+}
+
+/* ================= BRANDS ================= */
+.brands {
+  margin-top: 50px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  .brand-card {
+    background: #0d1518;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.5)
+      );
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    &:hover img {
+      transform: scale(1.12);
+      filter: brightness(1.2);
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+
+.map-section {
+  margin-top: 50px;
+  text-align: center;
+
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 15px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .categories {
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+  }
+}
+
