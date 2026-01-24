@@ -1,0 +1,56 @@
+$dark-bg: #2d2d2d; // Dark charcoal background from image
+$accent-gold: #c5a059; // Gold/bronze color for numbers
+$divider-color: rgba(197, 160, 89, 0.3); // Faded gold for dividers
+
+.stats-bar {
+  background-color: $dark-bg;
+  padding: 60px 0; // Adjust padding based on your visual preference
+  width: 100%;
+
+  .stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .stat-item {
+    text-align: center;
+    flex: 1;
+
+    .stat-number {
+      color: $accent-gold;
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .stat-label {
+      color: $accent-gold;
+      font-size: 1rem;
+      margin-top: 10px;
+      text-transform: capitalize;
+      opacity: 0.9;
+    }
+  }
+
+  .divider {
+    height: 60px; // Height of the vertical line
+    width: 1px;
+    background-color: $divider-color;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 40px;
+    
+    .divider {
+      display: none; // Hide dividers on mobile
+    }
+  }
+}

@@ -1,7 +1,116 @@
-.Navbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-    column-gap: 100px;
+$primary-blue: #1e88e5;
+$accent-gold: #c5a059;
+$text-white: #ffffff;
+
+.hero-section {
+    height: 100vh;
+    width: 90%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('./Navbar_imgs/banner.png') no-repeat center center/cover;
+    color: $text-white;
+    padding: 0 5%;
+    font-family: 'Arial', sans-serif;
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 900px;
+        padding: 20px 0;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $accent-gold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+
+            a {
+                text-decoration: none;
+                color: $text-white;
+                font-size: 0.9rem;
+
+                &.active {
+                    border-bottom: 2px solid $text-white;
+                }
+            }
+
+            .btn-login {
+                background-color: $primary-blue;
+                border: none;
+                color: white;
+                padding: 5px 20px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .hero-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 400px;
+        height: calc(100vh - 80px);
+
+        .text-container {
+            max-width: 500px;
+
+            h1 {
+                font-size: 3.5rem;
+                line-height: 1.1;
+                margin-bottom: 20px;
+            }
+
+            .subtitle {
+                font-size: 1.8rem;
+                color: $accent-gold;
+                margin-bottom: 10px;
+            }
+
+            .hours {
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+                opacity: 0.8;
+            }
+
+            .btn-signup {
+                background-color: $primary-blue;
+                border: none;
+                color: white;
+                padding: 12px 40px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        .brand-overlay {
+            text-align: center;
+            position: relative;
+            margin-right: 50px;
+            .czn-tag {
+                color: #d32f2f;
+                font-size: 2rem;
+                letter-spacing: 5px;
+            }
+
+            .main-brand {
+                font-size: 8rem;
+                color: rgba(139, 45, 45, 0.8); // Deep reddish brown from image
+                margin: -20px 0;
+                font-family: 'Serif', Georgia; // Use a stylized font if available
+            }
+
+            .sub-brand {
+                font-size: 4rem;
+                color: $accent-gold;
+                letter-spacing: 10px;
+            }
+        }
+    }
 }
