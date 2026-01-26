@@ -3,19 +3,44 @@ $accent-gold: #c5a059;
 $text-white: #ffffff;
 
 .hero-section {
+    position: relative;
     height: 100vh;
-    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url('./Navbar_imgs/banner.png') no-repeat center center/cover;
     color: $text-white;
     padding: 0 5%;
     font-family: 'Arial', sans-serif;
-
+    .login_request{
+        max-width: 1500px;
+        width: 1500px;
+        left: 55px;
+        z-index: 1;
+    }
+    .login_request.rider_false{
+        margin: 0 auto;
+        position: absolute;
+        top: -3000px;
+        // left: 600px;
+        // z-index: 1;
+        // box-shadow:  0 0 9999999999999px black;
+        transition: .5s;
+    }
+    .login_request.rider_true{
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.593), rgba(0, 0, 0, 0.533));
+        // left: 600px;
+        // z-index: 1;
+        // box-shadow:  0 0 9999999999999px black;
+        transition: .5s;
+    }
     .navbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        column-gap: 900px;
         padding: 20px 0;
 
         .logo {
@@ -29,7 +54,6 @@ $text-white: #ffffff;
             list-style: none;
             align-items: center;
             gap: 30px;
-
             a {
                 text-decoration: none;
                 color: $text-white;
@@ -53,9 +77,8 @@ $text-white: #ffffff;
 
     .hero-content {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        column-gap: 400px;
         height: calc(100vh - 80px);
 
         .text-container {

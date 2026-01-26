@@ -1,11 +1,14 @@
-.OrderNavbar {
+.HelpNavbar {
+    margin-top: 100px;
     .links {
+        max-width: 285px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        border-bottom: 3px solid grey;
         padding-bottom: 0px;
+        border-bottom: 3px solid grey;
         a {
             padding: 8px 20px;
             text-decoration: none;
