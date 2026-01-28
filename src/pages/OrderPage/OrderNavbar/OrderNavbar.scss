@@ -1,0 +1,23 @@
+.OrderNavbar {
+    .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 3px solid grey;
+        padding-bottom: 0px;
+        a {
+            padding: 8px 20px;
+            text-decoration: none;
+            color: grey;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: monospace;
+            transition: .5s;
+        }
+        a.active{
+            background-color: rgba(128, 128, 128, 0.39);
+            box-shadow: 0 0 10px grey;
+        }
+    }
+}

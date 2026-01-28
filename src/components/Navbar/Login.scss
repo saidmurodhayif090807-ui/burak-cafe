@@ -1,0 +1,135 @@
+// Variables
+$primary-blue: #3b82f6;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$border-color: #e2e8f0;
+$bg-color: #f8fafc;
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background:none;
+  font-family: 'Inter', sans-serif;
+
+  .login-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      color: $text-dark;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: $text-light;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.25rem;
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1.5px solid $border-color;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-blue;
+        }
+
+        &::placeholder {
+          color: #94a3b8;
+        }
+      }
+    }
+
+    .password-group {
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: $text-light;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: $text-light;
+        cursor: pointer;
+
+        input { cursor: pointer; }
+      }
+
+      .forgot-link {
+        color: $primary-blue;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover { text-decoration: underline; }
+      }
+    }
+
+    .signin-btn {
+      width: 100%;
+      padding: 0.85rem;
+      background-color: $primary-blue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: darken($primary-blue, 5%);
+      }
+    }
+
+    .footer {
+      margin-top: 0;
+      color: $text-light;
+      font-size: 0.9rem;
+      background: none;
+      a {
+        color: $primary-blue;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 4px;
+
+        &:hover { text-decoration: underline; }
+      }
+    }
+  }
+}

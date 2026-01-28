@@ -1,0 +1,98 @@
+$navy-blue: #1a2b4b;
+$text-light: #8e9aaf;
+$border-color: #eef2f6;
+$btn-bg: #333333; // Dark button color
+$bg-color: #f8faff;
+
+.contact-container {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: $bg-color;
+    min-height: 100vh;
+}
+
+.contact-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 50px;
+    text-align: left;
+}
+
+.contact-title {
+    color: $navy-blue;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.contact-subtitle {
+    color: $text-light;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    .form-group {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: $navy-blue;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            padding: 15px 20px;
+            border: 1.5px solid $border-color;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: #fafbfc;
+            color: $navy-blue;
+            transition: border-color 0.3s ease;
+
+            &::placeholder {
+                color: #b0bac9;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: darken($border-color, 10%);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; // Aligns button to the right as per image
+    margin-top: 20px;
+}
+
+.send-button {
+    background-color: $btn-bg;
+    color: #c9ad7f; // Goldish-white text color seen in your button
+    border: none;
+    padding: 12px 35px;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}

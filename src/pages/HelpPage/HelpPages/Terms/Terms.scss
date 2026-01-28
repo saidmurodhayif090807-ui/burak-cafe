@@ -1,0 +1,48 @@
+// Variables for easy updates
+$text-color: #1a2b4b; // Deep navy from the image
+$border-color: #e0e6ed;
+$bg-color: #f8faff;
+
+.terms-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  background-color: $bg-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.terms-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 0; // Padding top/bottom inside the card
+}
+
+.terms-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.terms-item {
+  padding: 24px 30px;
+  color: $text-color;
+  font-size: 1rem;
+  font-weight: 600; // Semi-bold as seen in the text
+  line-height: 1.5;
+  border-bottom: 1px solid $border-color;
+
+  // Remove the border from the very last item to match the image
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: rgba($bg-color, 0.5);
+    transition: background 0.3s ease;
+  }
+}
