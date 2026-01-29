@@ -19,12 +19,18 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (food) => {
-    setCart((prev) => [...prev, food]);
+   
+    const newOrder = { ...food, cartId: Date.now() };
+    setCart((prev) => [...prev, newOrder]);
+  };
+
+  const removeFromCart = (cartId) => {
+    setCart((prev) => prev.filter(item => item.cartId !== cartId));
   };
 
   return (
-    <div>
-      <Navbar cart={cart} />
+    <div className="app-container">
+      <Navbar cart={cart} removeFromCart={removeFromCart} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/ProductPage' element={<ProductPage addToCart={addToCart} />} />
