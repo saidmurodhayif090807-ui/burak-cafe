@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
@@ -6,8 +7,44 @@ import './Navbar.scss';
 import './Login.scss';
 
 const Navbar = ({ cart }) => {
-  const Keyword = 'saidmurodcode@gmail.com';
-  const Keypassword = '1234';
+  const API_URL = "https://697b4e410e6ff62c3c5ba3df.mockapi.io/Login/";
+  const handleClick2 = async () => {
+    try {
+      const response = await axios.get(API_URL);
+
+      const users = response.data;
+
+      const foundUser = users.find(
+        (user) =>
+          user.username === username &&
+          user.password === password
+      );
+
+      if (foundUser) {
+        alert("true");
+        Setrider(!rider);
+      } else {
+        alert("Error: wrong username or password");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Server error");
+    }
+  };
+  const handleClick5 = async () => {
+    try {
+      const response = await axios.post(API_URL, {
+        username: "saidmurdocode@gmail.com",
+        password: "1234",
+      });
+
+      console.log("Saved:", response.data);
+      alert("User saved!");
+    } catch (error) {
+      console.error(error);
+      alert("Error saving user");
+    }
+  };
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rider, Setrider] = useState(false);
@@ -18,14 +55,6 @@ const Navbar = ({ cart }) => {
     Setrider(!rider);
   };
 
-  const handleClick2 = () => {
-    if (username === Keyword && password === Keypassword) {
-      alert("true");
-      Setrider(!rider);
-    } else {
-      alert("Error: wrong username or password");
-    }
-  };
 
   const [formData, setFormData] = useState({
     email: '',
@@ -125,9 +154,10 @@ const Navbar = ({ cart }) => {
           <li><NavLink to={'/MyPage'}>MyPage</NavLink></li>
           <li><NavLink to={'/OrderPage'}>OrderPage</NavLink></li>
           <li><NavLink to={'/HelpPage'}>Help</NavLink></li>
+          <button onClick={handleClick5}>get</button>
 
           {/* SAVATCHA */}
-          <li 
+          <li
             className="cart-wrapper"
             onMouseEnter={() => setShowCart(true)}
             onMouseLeave={() => setShowCart(false)}
