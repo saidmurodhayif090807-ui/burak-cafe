@@ -1,34 +1,32 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
-import Fingerprint from '@mui/icons-material/Fingerprint';
-import Tooltip from '@mui/material/Tooltip';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import './Navbar.scss'
-import MyPage from '../../pages/MyPage/MyPage';
+import './Navbar.scss';
 import './Login.scss';
-const Navbar = () => {
-  const Keyword = 'saidmurodcode@gmail.com'
-  const Keypassword = '1234'
+
+const Navbar = ({ cart }) => {
+  const Keyword = 'saidmurodcode@gmail.com';
+  const Keypassword = '1234';
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rider, Setrider] = useState(false)
+  const [rider, Setrider] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const handleClick1 = ()=>{
-    Setrider(!rider)
-  }
-  const handleClick2 = ()=>{
+  const [showCart, setShowCart] = useState(false);
+
+  const handleClick1 = () => {
+    Setrider(!rider);
+  };
+
+  const handleClick2 = () => {
     if (username === Keyword && password === Keypassword) {
       alert("true");
-      Setrider(!rider)
+      Setrider(!rider);
     } else {
       alert("Error: wrong username or password");
     }
-  }
+  };
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -47,8 +45,11 @@ const Navbar = () => {
     e.preventDefault();
     console.log('Form Submitted:', formData);
   };
+
   return (
     <section className="hero-section">
+
+      {/* LOGIN FORM */}
       <div className={rider ? 'login_request rider_true' : 'login_request rider_false'}>
         <div className="login-container">
           <div className="login-card">
@@ -62,7 +63,7 @@ const Navbar = () => {
                   name="email"
                   placeholder="Email"
                   value={formData.email}
-                  onChange={(e)=>{
+                  onChange={(e) => {
                     handleChange(e);
                     setUsername(e.target.value);
                   }}
@@ -76,7 +77,7 @@ const Navbar = () => {
                   name="password"
                   placeholder="Password"
                   value={formData.password}
-                  onChange={(e)=>{
+                  onChange={(e) => {
                     handleChange(e);
                     setPassword(e.target.value);
                   }}
@@ -114,6 +115,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">BURAK</div>
         <ul className="nav-links">
@@ -122,11 +125,31 @@ const Navbar = () => {
           <li><NavLink to={'/MyPage'}>MyPage</NavLink></li>
           <li><NavLink to={'/OrderPage'}>OrderPage</NavLink></li>
           <li><NavLink to={'/HelpPage'}>Help</NavLink></li>
-          <li><i className="cart-icon">🛒</i></li>
+
+          {/* SAVATCHA */}
+          <li 
+            className="cart-wrapper"
+            onMouseEnter={() => setShowCart(true)}
+            onMouseLeave={() => setShowCart(false)}
+          >
+            <ShoppingCartIcon fontSize="large" />
+            {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            {showCart && (
+              <div className="cart-dropdown">
+                {cart.map((item, index) => (
+                  <div key={index} className="cart-item">
+                    {item.title} - ${item.price}
+                  </div>
+                ))}
+              </div>
+            )}
+          </li>
+
           <li><button className="btn-login" onClick={handleClick1}>LOGIN</button></li>
         </ul>
       </nav>
 
+      {/* HERO CONTENT */}
       <div className="hero-content">
         <div className="text-container">
           <h1>World's Most <br /> Delicious Cuisine</h1>
@@ -141,16 +164,9 @@ const Navbar = () => {
           <h3 className="sub-brand">GURME</h3>
         </div>
       </div>
+
     </section>
   );
 };
 
 export default Navbar;
-// <div className='Navbar'>
-//   <div className="links">
-//     <NavLink to={'/'}>home</NavLink>
-//     <NavLink to={'/ProductPage'}>ProductPage</NavLink>
-//     <NavLink to={'/MyPage'}>MyPage</NavLink>
-//     <NavLink to={'/OrderPage'}>OrderPage</NavLink>
-//   </div>
-// </div>

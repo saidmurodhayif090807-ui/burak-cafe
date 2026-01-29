@@ -311,5 +311,13 @@
       transform: none;
     }
   }
+  // Navbar.scss ichiga qo'shish uchun
+.cart-wrapper {
+  color: #8e24aa; // Binafsha rang
+  
+  .cart-count {
+    background: #ff9800; // Badge rangi (To'q sariq)
+  }
+}
 }
 

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/HomePage/Home';
@@ -15,12 +16,24 @@ import FAQ from "./pages/HelpPage/HelpPages/FAQ/FAQ";
 import Contact from "./pages/HelpPage/HelpPages/Contact/Contact";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (food) => {
+   
+    const newOrder = { ...food, cartId: Date.now() };
+    setCart((prev) => [...prev, newOrder]);
+  };
+
+  const removeFromCart = (cartId) => {
+    setCart((prev) => prev.filter(item => item.cartId !== cartId));
+  };
+
   return (
-    <div>
-      <Navbar />
+    <div className="app-container">
+      <Navbar cart={cart} removeFromCart={removeFromCart} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/ProductPage' element={<ProductPage />} />
+        <Route path='/ProductPage' element={<ProductPage addToCart={addToCart} />} />
         <Route path='/MyPage' element={<MyPage />} />
         <Route path='/OrderPage' element={<OrderPage />}>
           <Route index element={<Paused />} />
@@ -41,4 +54,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
