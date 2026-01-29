@@ -11,7 +11,7 @@ const Community = () => {
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' 
+      const scrollTo = direction === 'left'
         ? scrollLeft - clientWidth 
         : scrollLeft + clientWidth;
       
