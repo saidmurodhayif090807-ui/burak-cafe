@@ -8,6 +8,11 @@ import './Login.scss';
 
 const Navbar = ({ cart }) => {
   const API_URL = "https://697b4e410e6ff62c3c5ba3df.mockapi.io/Login/";
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [rider, Setrider] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const handleClick2 = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -31,31 +36,14 @@ const Navbar = ({ cart }) => {
       alert("Server error");
     }
   };
-  const handleClick5 = async () => {
-    try {
-      const response = await axios.post(API_URL, {
-        username: "saidmurdocode@gmail.com",
-        password: "1234",
-      });
-
-      console.log("Saved:", response.data);
-      alert("User saved!");
-    } catch (error) {
-      console.error(error);
-      alert("Error saving user");
-    }
-  };
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [rider, Setrider] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showCart, setShowCart] = useState(false);
 
   const handleClick1 = () => {
     Setrider(!rider);
   };
 
-
+  const Forgot_password = () => {
+    alert("pastga o'tkizing");
+  }
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -132,21 +120,26 @@ const Navbar = ({ cart }) => {
                   <span className="checkmark"></span>
                   Remember me
                 </label>
-                <a href="/forgot" className="forgot-link">Forgot password?</a>
+                <a href="" className="forgot-link">Forgot password?</a>
               </div>
 
               <button type="submit" onClick={handleClick2} className="signin-btn">Sign In</button>
             </form>
 
             <div className="footer">
-              Don't have an account? <a href="/signup">Create one</a>
+              Don't have an account? <NavLink to={'/CreateAccount'} onClick={() => {
+                Forgot_password();
+                // Setrider(!rider);
+              }}>
+                <a href="/signup">Create one</a>
+              </NavLink>
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* NAVBAR */}
-      <nav className="navbar">
+      < nav className="navbar" >
         <div className="logo">BURAK</div>
         <ul className="nav-links">
           <li><NavLink to={'/'}>Home</NavLink></li>
@@ -154,7 +147,7 @@ const Navbar = ({ cart }) => {
           <li><NavLink to={'/MyPage'}>MyPage</NavLink></li>
           <li><NavLink to={'/OrderPage'}>OrderPage</NavLink></li>
           <li><NavLink to={'/HelpPage'}>Help</NavLink></li>
-          <button onClick={handleClick5}>get</button>
+          {/* <button onClick={handleClick5}>get</button> */}
 
           {/* SAVATCHA */}
           <li
@@ -177,10 +170,10 @@ const Navbar = ({ cart }) => {
 
           <li><button className="btn-login" onClick={handleClick1}>LOGIN</button></li>
         </ul>
-      </nav>
+      </nav >
 
       {/* HERO CONTENT */}
-      <div className="hero-content">
+      < div className="hero-content" >
         <div className="text-container">
           <h1>World's Most <br /> Delicious Cuisine</h1>
           <p className="subtitle">The Choice, not just a choice</p>
@@ -193,9 +186,9 @@ const Navbar = ({ cart }) => {
           <h2 className="main-brand">BURAK</h2>
           <h3 className="sub-brand">GURME</h3>
         </div>
-      </div>
+      </div >
 
-    </section>
+    </section >
   );
 };
 

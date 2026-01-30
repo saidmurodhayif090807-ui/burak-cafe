@@ -14,6 +14,7 @@ import HelpPage from "./pages/HelpPage/HelpPage";
 import Terms from "./pages/HelpPage/HelpPages/Terms/Terms";
 import FAQ from "./pages/HelpPage/HelpPages/FAQ/FAQ";
 import Contact from "./pages/HelpPage/HelpPages/Contact/Contact";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -47,6 +48,7 @@ function App() {
           <Route path='faq' element={<FAQ/>} />
           <Route path='contact' element={<Contact/>} />
         </Route>
+        <Route path='/CreateAccount' element={<CreateAccount/>} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
